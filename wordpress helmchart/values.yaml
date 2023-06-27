@@ -1,0 +1,6 @@
+
+MYSQL_ROOT_PASSWORD: bXlzcWwxMjM0
+#nginxexternalIPs: 82.115.20.220
+ingresshost: localhost
+WORDPRESS_DB_USER: root
+WORDPRESS_DB_NAME: wordpress
