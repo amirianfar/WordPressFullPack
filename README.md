@@ -1,6 +1,6 @@
 # WordPressFullPack
-
-RUN the bash.sh file with this patter:
+R
+RUN the bash.sh file with this pattern only in $HOME directory:
 
 ./bash.sh $nodeIP @hostRootUser
 For example: 
