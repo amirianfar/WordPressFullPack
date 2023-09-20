@@ -25,8 +25,8 @@ echo -e "  ** Host Sudo USER: $hostSudoUser ${NC}\n"
 # login to remote host
 # ssh -p $nodePort -o StrictHostKeyChecking=no  $hostSudoUser@$nodeIP
 
-ssh-keygen -t rsa -b 2048 -f $HOME/.ssh/id_rsa -C "my k8s cluster key"
-ssh-copy-id -i $HOME/.ssh/id_rsa.pub $hostSudoUser@$nodeIP
+ssh-keygen -t rsa -b 2048 -f $HOME/.ssh/k8s_rsa -C "my k8s cluster key"
+ssh-copy-id -i $HOME/.ssh/k8s_rsa.pub $hostSudoUser@$nodeIP
 
 sleep 1
 echo -e "\n${RED} ** Updating package indexes ${NC}\n"
@@ -63,9 +63,4 @@ sudo CONFIG_FILE=inventory/milad-cluster/hosts.yaml python3 contrib/inventory_bu
 
 echo -e "\n${RED} ** Installing Kubespray... It can take a few minutes ...wait please... ${NC}\n"
 sleep 1
-ansible-playbook -vvv -i inventory/milad-cluster/hosts.yaml -u $hostSudoUser -b -v --private-key=$HOME/.ssh/id_rsa.pub cluster.yml
-
-
-
-
-
+ansible-playbook -vvv -i inventory/milad-cluster/hosts.yaml -u $hostSudoUser -b -v --private-key=$HOME/.ssh/k8s_rsa.pub cluster.yml -kK
