@@ -79,7 +79,7 @@ sudo pip install -r requirements.txt
 sudo modprobe nf_conntrack
 lsmod | grep nf_conntrack
 
-sudo declare -r CLUSTER_FOLDER=$CLUSTER_NAME
+CLUSTER_FOLDER=$CLUSTER_NAME
 sudo cp -rfp inventory/sample inventory/$CLUSTER_FOLDER
 # sudo declare -a IPS=("$WorkerNodeIPAddress")
 sudo CONFIG_FILE=inventory/$CLUSTER_FOLDER/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]}
